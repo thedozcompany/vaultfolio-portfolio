@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DOZ.</title>
+  <title>Test Page 3 - DOZ.</title>
   <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body.vf-apple {
@@ -154,95 +154,25 @@ body.vf-apple {
 </head>
 <body class="vf-apple">
 
-<nav class="vf-nav-ap">
-  <div class="vf-nav-ap-logo">DOZ.</div>
-  <div style="display:flex;gap:24px;align-items:center;">
-    <a href="https://www.thedozcompany.com" style="color:#7C3AED; font-size:14px; font-weight:400;" target="_blank" rel="noopener noreferrer">Work</a>
-  </div>
+<nav class="vf-nav-ap" style="justify-content: center; position: relative;">
+  <a href="../index.html" class="vf-back-ap">&lt; Back</a>
+  <div class="vf-nav-ap-logo">Test Page 3</div>
 </nav>
 
-<header class="vf-hero-ap">
-  <h1 class="vf-hero-ap-title">we design. Then we build.</h1>
-  <p class="vf-hero-ap-subtitle">A web innovation studio delivering UI/UX design at zero cost — then building it with precision.</p>
+<header class="vf-page-ap-header">
+  <h1 class="vf-page-ap-title">Test Page 3</h1>
+  <p class="vf-page-ap-meta">Project Showcase</p>
 </header>
 
-<section id="work" class="vf-projects-ap">
-  
-    <div class="vf-filter-bar">
-      <button class="vf-filter-btn active" data-filter="all">All</button>
-      <button class="vf-filter-btn" data-filter="mobile_app">mobile_app</button><button class="vf-filter-btn" data-filter="portfolio">portfolio</button><button class="vf-filter-btn" data-filter="ui">ui</button><button class="vf-filter-btn" data-filter="ui/ux">ui/ux</button><button class="vf-filter-btn" data-filter="ux">ux</button><button class="vf-filter-btn" data-filter="web_design">web_design</button><button class="vf-filter-btn" data-filter="wedding">wedding</button>
-    </div>
-  
-  <div class="vf-projects-ap-grid">
-    
-<a href="pages/test-page-3.html" class="vf-card-ap vf-filter-card" data-tags="">
-  <div class="vf-card-ap-title">Test Page 3</div>
-  
-  
-  <div class="vf-card-ap-link">Learn more &gt;</div>
-</a>
-
-<a href="pages/test-page-2.html" class="vf-card-ap vf-filter-card" data-tags="">
-  <div class="vf-card-ap-title">Test Page 2</div>
-  
-  
-  <div class="vf-card-ap-link">Learn more &gt;</div>
-</a>
-
-<a href="pages/pennywise.html" class="vf-card-ap vf-filter-card" data-tags="ui ux mobile_app">
-  <div class="vf-card-ap-title">Pennywise</div>
-  
-  <div class="vf-card-ap-tags"><span class="vf-tag-ap">ui</span><span class="vf-tag-ap">ux</span><span class="vf-tag-ap">mobile_app</span></div>
-  <div class="vf-card-ap-link">Learn more &gt;</div>
-</a>
-
-<a href="pages/aurevia.html" class="vf-card-ap vf-filter-card" data-tags="web_design ui/ux wedding portfolio">
-  <div class="vf-card-ap-title">Aurevia</div>
-  
-  <div class="vf-card-ap-tags"><span class="vf-tag-ap">web_design</span><span class="vf-tag-ap">ui/ux</span><span class="vf-tag-ap">wedding</span></div>
-  <div class="vf-card-ap-link">Learn more &gt;</div>
-</a>
+<main class="vf-page-ap-content">
+  <div class="vf-prose-ap">
+    <p>Test content</p>
   </div>
-</section>
+</main>
 
-<section class="vf-quote-ap">
-  <p>&quot;A studio that 
-gives before it takes.&quot;</p>
-</section>
-
-<footer class="vf-footer-ap">
-  Copyright &copy; 2026 DOZ.. All rights reserved. <br/>
-  Published with VaultFolio.
+<footer class="vf-footer-ap" style="border-top: none; padding-top: 80px;">
+  Copyright &copy; 2026 DOZ.. All rights reserved.
 </footer>
 
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const filters = document.querySelectorAll(".vf-filter-btn");
-  const cards = document.querySelectorAll(".vf-filter-card");
-  
-  filters.forEach(btn => {
-    btn.addEventListener("click", () => {
-      filters.forEach(f => f.classList.remove("active"));
-      btn.classList.add("active");
-      
-      const tag = btn.getAttribute("data-filter");
-      
-      cards.forEach(card => {
-        if (tag === "all") {
-          card.style.display = "";
-        } else {
-          const cardTags = card.getAttribute("data-tags") || "";
-          const tList = cardTags.split(" ");
-          if (tList.includes(tag)) {
-            card.style.display = "";
-          } else {
-            card.style.display = "none";
-          }
-        }
-      });
-    });
-  });
-});
-</script>
 </body>
 </html>

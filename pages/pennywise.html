@@ -478,6 +478,42 @@ img { max-width: 100%; height: auto; display: block; }
 .callout-quote    { background: #f8fafc; border-color: #64748b; color: #1e293b; }
 .callout-abstract { background: #f0f9ff; border-color: #0ea5e9; color: #0c4a6e; }</style>
   <meta name="description" content="A fintech mobile app with clean UI/UX design." />
+  <style>
+/* ── Project Gallery ── */
+.vf-gallery-section{margin:2.5rem 0;}
+.vf-gallery-header{display:flex;justify-content:flex-end;align-items:center;margin-bottom:16px;}
+.vf-gallery-label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);}
+.vf-gallery-toggle{display:flex;gap:6px;align-items:center;}
+.vf-view-btn{width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:6px;cursor:pointer;background:transparent;border:1px solid rgba(255,255,255,0.2);transition:all 0.15s ease;}
+.vf-view-btn svg{fill:rgba(255,255,255,0.3);display:block;}
+.vf-view-btn.active{background:#FF4D00;border-color:#FF4D00;}
+.vf-view-btn.active svg{fill:#fff;}
+.vf-gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;}
+.vf-gallery-grid .vf-gallery-item{border-radius:8px;overflow:hidden;aspect-ratio:4/3;background:#111111;}
+.vf-gallery-grid .vf-gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.3s ease;}
+.vf-gallery-grid .vf-gallery-item:hover img{transform:scale(1.03);}
+.vf-gallery-grid .vf-img-caption{display:none;}
+.vf-gallery-list{display:flex;flex-direction:column;gap:16px;}
+.vf-gallery-list .vf-gallery-item{display:flex;flex-direction:column;gap:8px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,0.08);aspect-ratio:unset;border-radius:0;overflow:visible;}
+.vf-gallery-list .vf-gallery-item img{width:100%;max-height:500px;object-fit:contain;border-radius:8px;background:#111111;}
+.vf-gallery-list .vf-img-caption{font-size:12px;color:rgba(255,255,255,0.4);text-align:center;font-style:italic;display:block;}
+.vf-lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.92);display:flex;align-items:center;justify-content:center;z-index:9999;cursor:zoom-out;}
+.vf-lightbox.hidden{display:none;}
+#vf-lb-img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:4px;cursor:default;}
+.vf-lb-close{position:absolute;top:20px;right:24px;background:transparent;border:none;color:white;font-size:28px;cursor:pointer;opacity:0.7;transition:opacity 0.15s;}
+.vf-lb-close:hover{opacity:1;}
+.vf-lb-prev,.vf-lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;font-size:32px;width:48px;height:48px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.15s;}
+.vf-lb-prev:hover,.vf-lb-next:hover{background:rgba(255,255,255,0.2);}
+.vf-lb-prev{left:20px;}
+.vf-lb-next{right:20px;}
+.vf-lb-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.6);font-size:13px;pointer-events:none;}
+@media(max-width:640px){
+  .vf-gallery-toggle{display:none;}
+  .vf-gallery-grid{grid-template-columns:1fr;}
+  .vf-gallery-list .vf-gallery-item img{max-height:300px;}
+  .vf-lb-prev{width:36px;height:36px;font-size:24px;left:10px;}
+  .vf-lb-next{width:36px;height:36px;font-size:24px;right:10px;}
+}</style>
 </head>
 <body class="vf-project-page">
 
@@ -510,16 +546,33 @@ img { max-width: 100%; height: auto; display: block; }
   <h2 class="vf-project-content-title">Pennywise</h2>
   
   <div class="vf-project-tags-line"><span class="vf-project-page-tag">ui</span><span class="vf-project-page-tag">ux</span><span class="vf-project-page-tag">mobile_app</span></div>
-  <div class="vf-prose">
-    <p><div class="callout callout-question"><div class="callout-title"><span class="callout-icon">❓</span><span class="callout-title-text">Spring Directions</span></div><div class="callout-content">The springs should be aligned same way. How?</div></div></p><p><div class="callout callout-warning"><div class="callout-title"><span class="callout-icon">⚠️</span><span class="callout-title-text">Important Note</span></div><div class="callout-content">Check this before proceeding.</div></div></p><p><div class="callout callout-tip"><div class="callout-title"><span class="callout-icon">💡</span><span class="callout-title-text">Pro Tip</span></div><div class="callout-content">This will save you time.</div></div></p>
-<div class="vf-gallery cols-4">
-<img src="../images/Pasted%20image%2020260424205336.png" alt="Pasted image 20260424205336.png" />
-<img src="../images/Pasted%20image%2020260424205549.png" alt="Pasted image 20260424205549.png" />
-<img src="../images/Pasted%20image%2020260424211226.png" alt="Pasted image 20260424211226.png" />
-<img src="../images/Pasted%20image%2020260424211326.png" alt="Pasted image 20260424211326.png" />
-</div>
-
+  <div class="vf-prose"><p><div class="callout callout-question"><div class="callout-title"><span class="callout-icon">❓</span><span class="callout-title-text">Spring Directions</span></div><div class="callout-content">The springs should be aligned same way. How?</div></div></p><p><div class="callout callout-warning"><div class="callout-title"><span class="callout-icon">⚠️</span><span class="callout-title-text">Important Note</span></div><div class="callout-content">Check this before proceeding.</div></div></p><p><div class="callout callout-tip"><div class="callout-title"><span class="callout-icon">💡</span><span class="callout-title-text">Pro Tip</span></div><div class="callout-content">This will save you time.</div></div></p></div>
+<section class="vf-gallery-section">
+  <div class="vf-gallery-header">
+    <div class="vf-gallery-toggle">
+      <button id="vf-btn-grid" data-view="grid" class="vf-view-btn active" title="Grid view" aria-label="Grid view"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="8" height="8" rx="1"/><rect x="10" y="0" width="8" height="8" rx="1"/><rect x="0" y="10" width="8" height="8" rx="1"/><rect x="10" y="10" width="8" height="8" rx="1"/></svg></button>
+      <button id="vf-btn-list" data-view="list" class="vf-view-btn" title="List view" aria-label="List view"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="18" height="3" rx="1"/><rect x="0" y="7" width="18" height="3" rx="1"/><rect x="0" y="14" width="18" height="3" rx="1"/></svg></button>
+    </div>
   </div>
+  <div id="vf-gallery-container" class="vf-gallery-grid">
+    <div class="vf-gallery-item">
+      <img src="../images/Pasted%20image%2020260424205336.png" alt="Pasted image 20260424205336.png" loading="lazy"/>
+      <span class="vf-img-caption">Pasted image 20260424205336</span>
+    </div>
+    <div class="vf-gallery-item">
+      <img src="../images/Pasted%20image%2020260424205549.png" alt="Pasted image 20260424205549.png" loading="lazy"/>
+      <span class="vf-img-caption">Pasted image 20260424205549</span>
+    </div>
+    <div class="vf-gallery-item">
+      <img src="../images/Pasted%20image%2020260424211226.png" alt="Pasted image 20260424211226.png" loading="lazy"/>
+      <span class="vf-img-caption">Pasted image 20260424211226</span>
+    </div>
+    <div class="vf-gallery-item">
+      <img src="../images/Pasted%20image%2020260424211326.png" alt="Pasted image 20260424211326.png" loading="lazy"/>
+      <span class="vf-img-caption">Pasted image 20260424211326</span>
+    </div>
+  </div>
+</section>
 </div>
 
 <footer class="vf-footer">
@@ -527,5 +580,47 @@ img { max-width: 100%; height: auto; display: block; }
   <span class="vf-footer-right">Built with <a href="#">VaultFolio</a></span>
 </footer>
 
+<div id="vf-lightbox" class="vf-lightbox hidden">
+  <button class="vf-lb-close" aria-label="Close">&#x2715;</button>
+  <button class="vf-lb-prev" aria-label="Previous">&#x2039;</button>
+  <button class="vf-lb-next" aria-label="Next">&#x203A;</button>
+  <div class="vf-lb-counter"></div>
+  <img id="vf-lb-img" src="" alt=""/>
+</div>
+<script>
+(function(){
+  var GKEY='vaultfolio-gallery-view';
+  var gc=document.getElementById('vf-gallery-container');
+  var gbtn=document.getElementById('vf-btn-grid');
+  var lbtn=document.getElementById('vf-btn-list');
+  if(!gc)return;
+  function setView(v){
+    if(v==='list'){gc.className='vf-gallery-list';if(gbtn)gbtn.classList.remove('active');if(lbtn)lbtn.classList.add('active');}
+    else{gc.className='vf-gallery-grid';if(gbtn)gbtn.classList.add('active');if(lbtn)lbtn.classList.remove('active');}
+    localStorage.setItem(GKEY,v);
+  }
+  setView(localStorage.getItem(GKEY)==='list'?'list':'grid');
+  if(gbtn)gbtn.addEventListener('click',function(){setView('grid');});
+  if(lbtn)lbtn.addEventListener('click',function(){setView('list');});
+  var lb=document.getElementById('vf-lightbox');
+  var lbImg=document.getElementById('vf-lb-img');
+  var lbCtr=document.querySelector('.vf-lb-counter');
+  var imgs=Array.from(document.querySelectorAll('#vf-gallery-container img'));
+  var cur=0;
+  function openLb(i){cur=i;if(lbImg)lbImg.src=imgs[i].src;if(lbCtr)lbCtr.textContent=(i+1)+' / '+imgs.length;if(lb)lb.classList.remove('hidden');document.body.style.overflow='hidden';}
+  function closeLb(){if(lb)lb.classList.add('hidden');document.body.style.overflow='';}
+  function prev(){cur=(cur-1+imgs.length)%imgs.length;if(lbImg)lbImg.src=imgs[cur].src;if(lbCtr)lbCtr.textContent=(cur+1)+' / '+imgs.length;}
+  function next(){cur=(cur+1)%imgs.length;if(lbImg)lbImg.src=imgs[cur].src;if(lbCtr)lbCtr.textContent=(cur+1)+' / '+imgs.length;}
+  imgs.forEach(function(img,i){img.style.cursor='zoom-in';img.addEventListener('click',function(){openLb(i);});});
+  var closeBtn=document.querySelector('.vf-lb-close');
+  var prevBtn=document.querySelector('.vf-lb-prev');
+  var nextBtn=document.querySelector('.vf-lb-next');
+  if(closeBtn)closeBtn.addEventListener('click',closeLb);
+  if(prevBtn)prevBtn.addEventListener('click',prev);
+  if(nextBtn)nextBtn.addEventListener('click',next);
+  if(lb)lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+  document.addEventListener('keydown',function(e){if(!lb||lb.classList.contains('hidden'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')prev();if(e.key==='ArrowRight')next();});
+})();
+</script>
 </body>
 </html>

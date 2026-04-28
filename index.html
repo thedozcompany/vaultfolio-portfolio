@@ -6,174 +6,269 @@
   <title>DOZ.</title>
   <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body.vf-apple {
-  background: #f5f5f7;
-  color: #1d1d1f;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+body.vf-glass {
+  background-color: #0D0D1A;
+  background-image:
+    radial-gradient(ellipse at 20% 20%, rgba(124,58,237,0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(139,92,246,0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(79,70,229,0.1) 0%, transparent 70%);
+  background-attachment: fixed;
+  color: #FFFFFF;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+  min-height: 100vh;
   -webkit-font-smoothing: antialiased;
 }
-.vf-apple a { color: inherit; text-decoration: none; }
-.vf-apple img { max-width: 100%; height: auto; display: block; border-radius: 12px; }
+.vf-glass a { color: inherit; text-decoration: none; }
+.vf-glass img { max-width: 100%; height: auto; display: block; }
 
-/* Navigation */
-.vf-nav-ap {
-  position: sticky; top: 0; z-index: 100;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: saturate(180%) blur(20px);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
+/* ── Navigation ── */
+.vf-nav-gl {
+  position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+  width: calc(100% - 48px); max-width: 1100px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px; padding: 12px 24px;
   display: flex; justify-content: space-between; align-items: center;
-  padding: 0 40px; height: 52px;
+  z-index: 100;
 }
-.vf-nav-ap-logo {
-  font-weight: 600; font-size: 17px; letter-spacing: -0.01em; color: #1d1d1f;
+.vf-nav-gl-logo { font-weight: 700; font-size: 16px; color: #fff; }
+.vf-nav-gl-logo span { color: #FF4D00; }
+.vf-nav-gl-links { display: flex; gap: 28px; align-items: center; }
+.vf-nav-gl-link { color: rgba(255,255,255,0.7); font-size: 13px; transition: color 0.2s; }
+.vf-nav-gl-link:hover { color: #fff; }
+.vf-nav-gl-cta {
+  background: rgba(124,58,237,0.6);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(124,58,237,0.4); border-radius: 8px; padding: 7px 18px;
+  color: white; font-size: 13px; font-family: inherit; cursor: pointer; transition: background 0.2s;
+}
+.vf-nav-gl-cta:hover { background: rgba(124,58,237,0.8); }
+
+/* ── Hero ── */
+.vf-hero-gl { padding: 160px 40px 80px; text-align: center; max-width: 800px; margin: 0 auto; }
+.vf-hero-gl-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(124,58,237,0.2); border: 1px solid rgba(124,58,237,0.4);
+  border-radius: 100px; padding: 4px 14px 4px 8px;
+  font-size: 12px; color: rgba(255,255,255,0.8); margin-bottom: 24px;
+}
+.vf-hero-gl-badge-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #7C3AED; box-shadow: 0 0 8px #7C3AED; flex-shrink: 0;
+}
+.vf-hero-gl-title {
+  font-size: clamp(40px, 7vw, 72px); font-weight: 700;
+  letter-spacing: -2px; line-height: 1.05;
+  background: linear-gradient(135deg, #FFFFFF 0%, rgba(255,255,255,0.7) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 20px;
+}
+.vf-hero-gl-subtitle {
+  font-size: 17px; color: rgba(255,255,255,0.5);
+  max-width: 500px; margin: 0 auto 36px; line-height: 1.7;
+}
+.vf-hero-gl-cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.vf-hero-gl-btn-primary {
+  background: linear-gradient(135deg, #7C3AED, #5B21B6);
+  border: none; border-radius: 12px; padding: 12px 28px;
+  color: white; font-size: 15px; font-weight: 500; font-family: inherit; cursor: pointer;
+  box-shadow: 0 0 30px rgba(124,58,237,0.4); transition: box-shadow 0.3s ease;
+}
+.vf-hero-gl-btn-primary:hover { box-shadow: 0 0 40px rgba(124,58,237,0.6); }
+.vf-hero-gl-btn-secondary {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px; padding: 12px 28px; color: rgba(255,255,255,0.8);
+  font-size: 15px; font-family: inherit; cursor: pointer;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: background 0.2s;
+}
+.vf-hero-gl-btn-secondary:hover { background: rgba(255,255,255,0.1); }
+
+/* ── Stats ── */
+.vf-stats-gl {
+  display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; padding: 40px;
+  border-top: 1px solid rgba(255,255,255,0.06); border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 60px;
+}
+.vf-stat-gl { text-align: center; }
+.vf-stat-gl-num { font-size: 32px; font-weight: 700; color: #fff; display: block; }
+.vf-stat-gl-lbl { font-size: 12px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.1em; }
+
+/* ── Projects section ── */
+.vf-projects-gl { max-width: 1200px; margin: 0 auto; padding: 0 40px 80px; }
+.vf-section-header-gl {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.vf-section-label-gl {
+  font-size: 11px; font-weight: 600; letter-spacing: 0.15em;
+  text-transform: uppercase; color: rgba(255,255,255,0.4);
 }
 
-/* Hero */
-.vf-hero-ap {
-  text-align: center; padding: 120px 40px 80px; max-width: 980px; margin: 0 auto;
-}
-.vf-hero-ap-title {
-  font-size: clamp(48px, 8vw, 80px); font-weight: 700; letter-spacing: -0.015em; line-height: 1.05; color: #1d1d1f; margin-bottom: 24px;
-}
-.vf-hero-ap-subtitle {
-  font-size: 24px; font-weight: 400; color: #86868b; line-height: 1.33337; letter-spacing: .009em; max-width: 680px; margin: 0 auto;
-}
-
-/* Projects */
-.vf-filter-bar { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 32px; }
-.vf-filter-btn { background: rgba(0,0,0,0.05); color: #1d1d1f; border: none; padding: 8px 16px; border-radius: 100px; font-size: 14px; cursor: pointer; transition: all 0.2s; font-family: inherit; font-weight: 400; }
-.vf-filter-btn:hover { background: rgba(0,0,0,0.1); }
-.vf-filter-btn.active { background: #1d1d1f; color: #fff; font-weight: 500; }
-
-.vf-projects-ap {
-  padding: 40px; max-width: 1200px; margin: 0 auto;
-}
-.vf-projects-ap-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;
-}
-.vf-card-ap {
-  background: #ffffff; border-radius: 18px; padding: 0; display: flex; flex-direction: column;
-  transition: transform 0.2s cubic-bezier(0,0,0.5,1), box-shadow 0.2s cubic-bezier(0,0,0.5,1);
-  box-shadow: 0 4px 24px rgba(0,0,0,0.04);
-  overflow: hidden;
-}
-.vf-card-ap:hover {
-  transform: scale(1.02); box-shadow: 0 12px 48px rgba(0,0,0,0.08);
-}
-.vf-card-ap-cover {
-  width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block;
-}
-.vf-card-ap-cover-placeholder {
-  width: 100%; height: 200px;
-  background: linear-gradient(135deg, #EDE9FE, #C4B5FD);
-}
-.vf-card-ap-body {
-  padding: 32px; flex: 1; display: flex; flex-direction: column; min-height: 160px;
-}
-.vf-card-ap-title {
-  font-size: 28px; font-weight: 600; letter-spacing: .004em; color: #1d1d1f; margin-bottom: 12px;
-}
-.vf-card-ap-desc {
-  font-size: 17px; font-weight: 400; color: #86868b; margin-bottom: 24px; line-height: 1.47;
-  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
-}
-.vf-card-ap-tags {
-  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 24px;
-}
-.vf-tag-ap {
-  background: #f5f5f7; color: #1d1d1f; font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: 100px;
-}
-.vf-card-ap-link {
-  margin-top: auto; color: #7C3AED; font-size: 17px; font-weight: 400;
-}
-.vf-card-ap-link:hover { text-decoration: underline; }
-
-/* Quote & Footer */
-.vf-quote-ap {
-  text-align: center; padding: 120px 40px; max-width: 800px; margin: 0 auto;
-}
-.vf-quote-ap p {
-  font-size: 32px; font-weight: 600; color: #1d1d1f; line-height: 1.25; letter-spacing: .004em;
-}
-.vf-footer-ap {
-  border-top: 1px solid #d2d2d7; padding: 32px 40px; text-align: center; font-size: 12px; color: #86868b;
-  max-width: 980px; margin: 0 auto;
-}
-
-/* Project Page */
-.vf-page-ap-header {
-  text-align: center; padding: 100px 40px 60px; max-width: 800px; margin: 0 auto;
-}
-.vf-page-ap-title {
-  font-size: 64px; font-weight: 700; color: #1d1d1f; letter-spacing: -0.015em; line-height: 1.05; margin-bottom: 16px;
-}
-.vf-page-ap-meta {
-  font-size: 17px; color: #86868b; font-weight: 400;
-}
-.vf-page-ap-content {
-  background: #ffffff; padding: 80px 40px; border-radius: 32px 32px 0 0; box-shadow: 0 -4px 24px rgba(0,0,0,0.04);
-}
-.vf-prose-ap {
-  max-width: 680px; margin: 0 auto;
-}
-.vf-prose-ap p {
-  font-size: 19px; line-height: 1.6; color: #1d1d1f; margin-bottom: 1.5rem; font-weight: 400;
-}
-.vf-prose-ap h2, .vf-prose-ap h3 {
-  font-weight: 600; color: #1d1d1f; letter-spacing: .004em; margin-top: 2.5rem; margin-bottom: 1rem;
-}
-.vf-prose-ap h2 { font-size: 32px; }
-.vf-prose-ap h3 { font-size: 24px; }
-.vf-prose-ap a { color: #7C3AED; text-decoration: none; }
-.vf-prose-ap a:hover { text-decoration: underline; }
-.vf-prose-ap pre, .vf-prose-ap code {
-  background: #f5f5f7; color: #1d1d1f; border-radius: 8px; font-family: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
-}
-.vf-prose-ap pre { padding: 20px; overflow-x: auto; font-size: 14px; margin: 2rem 0; }
-.vf-prose-ap code { padding: 3px 6px; font-size: 0.9em; }
-.vf-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin: 60px 0; }
-.vf-gallery.cols-4 { grid-template-columns: repeat(4, 1fr); }
-.vf-gallery img { margin: 0; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); width: 100%; height: 100%; object-fit: cover; }
-.vf-image-single { display: flex; justify-content: center; margin: 60px 0; }
-.vf-prose-ap blockquote {
-  border-left: 4px solid #d2d2d7; padding-left: 1.5rem; color: #86868b; margin: 2rem 0; font-size: 24px; font-style: italic;
-}
-.vf-prose-ap hr { border: none; border-top: 1px solid #d2d2d7; margin: 3rem 0; }
-
-.vf-back-ap {
-  position: absolute; top: 16px; left: 40px; color: #7C3AED; font-size: 14px; font-weight: 400; z-index: 200; display: flex; align-items: center;
-}
-.vf-back-ap:hover { text-decoration: underline; }
-
-/* ── View toggle (apple) ── */
-.vf-section-header-ap { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+/* ── View toggle ── */
 .view-toggle-container { display: flex; gap: 6px; align-items: center; }
-.view-toggle-btn { width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; border-radius: 8px; cursor: pointer; background: transparent; border: 1px solid #D2D2D7; transition: all 0.15s ease; }
-.view-toggle-btn svg { fill: #6E6E73; display: block; }
-.view-toggle-btn:hover:not(.active) { background: #f0f0f0; border-color: #adadad; }
-.view-toggle-btn.active { background: #1d1d1f; border-color: #1d1d1f; }
-.view-toggle-btn.active svg { fill: #ffffff; }
-.projects-grid { transition: all 0.2s ease; }
-/* Grid view */
-#projects-container.view-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
-/* List view */
-#projects-container.view-list { display: flex; flex-direction: column; gap: 0; }
-#projects-container.view-list .vf-card-ap { flex-direction: row; border-radius: 12px; border-bottom: 1px solid #f0f0f0; padding: 16px 0; background: transparent; box-shadow: none; transition: background 0.15s ease, padding-left 0.2s ease; }
-#projects-container.view-list .vf-card-ap:hover { background: #f9f9fb; padding-left: 8px; transform: none; box-shadow: none; }
-#projects-container.view-list .vf-card-ap-cover { width: 140px; height: 90px; aspect-ratio: unset; flex-shrink: 0; object-fit: cover; border-radius: 8px; }
-#projects-container.view-list .vf-card-ap-cover-placeholder { width: 140px; height: 90px; flex-shrink: 0; border-radius: 8px; }
-#projects-container.view-list .vf-card-ap-body { padding: 0 0 0 20px; min-height: unset; }
-#projects-container.view-list .vf-card-ap-title { font-size: 18px; margin-bottom: 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-#projects-container.view-list .vf-card-ap-desc { font-size: 13px; margin-bottom: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 600px; }
-#projects-container.view-list .vf-card-ap-link { display: none; }
+.view-toggle-btn {
+  width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;
+  border-radius: 8px; cursor: pointer;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); transition: all 0.15s ease;
+}
+.view-toggle-btn svg { fill: rgba(255,255,255,0.5); display: block; }
+.view-toggle-btn.active { background: rgba(124,58,237,0.6); border-color: rgba(124,58,237,0.4); }
+.view-toggle-btn.active svg { fill: #fff; }
+
+/* ── Glass cards ── */
+.glass-card {
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; overflow: hidden;
+  transition: all 0.3s ease; cursor: pointer; display: flex; flex-direction: column;
+  text-decoration: none; color: inherit;
+}
+.glass-card:hover {
+  background: rgba(255,255,255,0.07); border-color: rgba(124,58,237,0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(124,58,237,0.1);
+}
+.glass-card-cover { aspect-ratio: 16/9; overflow: hidden; }
+.glass-card-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.glass-card-cover-placeholder {
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(79,70,229,0.2));
+  display: flex; align-items: center; justify-content: center;
+}
+.glass-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+.glass-card-title { font-size: 17px; font-weight: 600; color: #fff; margin-bottom: 8px; }
+.glass-card-desc {
+  font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 14px;
+  display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+}
+.glass-card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; }
+.glass-tag {
+  background: rgba(124,58,237,0.2); border: 1px solid rgba(124,58,237,0.3);
+  border-radius: 100px; padding: 3px 10px; font-size: 11px; color: rgba(255,255,255,0.7);
+}
+.glass-card-link {
+  color: #A78BFA; font-size: 13px; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 4px; margin-top: auto; padding-top: 14px;
+  transition: color 0.2s;
+}
+.glass-card-link:hover { color: #fff; }
+
+/* ── Grid / list layout ── */
+#projects-container.view-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;
+}
+#projects-container.view-list { display: flex; flex-direction: column; gap: 8px; }
+#projects-container.view-list .glass-card {
+  flex-direction: row; border-radius: 12px; padding: 16px;
+  background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.06);
+}
+#projects-container.view-list .glass-card:hover {
+  background: rgba(255,255,255,0.06); border-color: rgba(124,58,237,0.2);
+  transform: none; box-shadow: none;
+}
+#projects-container.view-list .glass-card-cover,
+#projects-container.view-list .glass-card-cover-placeholder {
+  width: 120px; height: 80px; aspect-ratio: unset; flex-shrink: 0; border-radius: 8px; overflow: hidden;
+}
+#projects-container.view-list .glass-card-body { padding: 0 0 0 16px; }
+#projects-container.view-list .glass-card-title { font-size: 15px; }
+#projects-container.view-list .glass-card-link { display: none; }
+
+/* ── Tag filter ── */
+.vf-filter-bar-gl { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+.vf-filter-btn-gl {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px; padding: 6px 16px; font-size: 13px; color: rgba(255,255,255,0.6);
+  font-family: inherit; cursor: pointer; transition: all 0.2s;
+}
+.vf-filter-btn-gl:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.vf-filter-btn-gl.active { background: rgba(124,58,237,0.4); border-color: rgba(124,58,237,0.5); color: #fff; }
+
+/* ── About ── */
+.vf-about-gl {
+  background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 24px; padding: 60px 40px; margin: 0 40px 60px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+}
+.vf-about-gl-heading { font-size: 36px; font-weight: 700; color: #fff; margin-bottom: 16px; letter-spacing: -1px; }
+.vf-about-gl-text { color: rgba(255,255,255,0.5); line-height: 1.8; font-size: 15px; }
+.vf-skills-gl { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.vf-skill-gl {
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px; padding: 6px 14px; color: rgba(255,255,255,0.7); font-size: 13px;
+}
+
+/* ── Footer ── */
+.vf-footer-gl {
+  border-top: 1px solid rgba(255,255,255,0.06); padding: 32px 40px;
+  display: flex; justify-content: space-between; align-items: center;
+  color: rgba(255,255,255,0.4); font-size: 13px; max-width: 1200px; margin: 0 auto;
+}
+.vf-footer-gl-accent { color: #FF4D00; }
+
+/* ── Project page ── */
+.vf-page-gl { max-width: 800px; margin: 0 auto; padding: 120px 40px 80px; }
+.vf-back-gl {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px; padding: 8px 16px; color: rgba(255,255,255,0.7);
+  font-size: 14px; margin-bottom: 40px; transition: background 0.2s;
+}
+.vf-back-gl:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.vf-page-gl-title {
+  font-size: clamp(36px, 6vw, 64px); font-weight: 700; color: #fff;
+  letter-spacing: -1.5px; margin-bottom: 16px; line-height: 1.05;
+}
+.vf-page-gl-meta { font-size: 14px; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+.vf-page-gl-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 32px; }
+.vf-project-description { font-size: 17px; color: rgba(255,255,255,0.5); line-height: 1.6; max-width: 680px; margin: 16px auto 24px; text-align: center; }
+.vf-page-gl-content {
+  background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 20px; padding: 40px; margin-top: 32px;
+  color: rgba(255,255,255,0.8); font-size: 16px; line-height: 1.9;
+}
+.vf-prose-gl p { margin-bottom: 1.5rem; }
+.vf-prose-gl h2, .vf-prose-gl h3 {
+  color: #fff; font-weight: 600; letter-spacing: -0.5px; margin-top: 2.5rem; margin-bottom: 1rem;
+}
+.vf-prose-gl h2 { font-size: 28px; }
+.vf-prose-gl h3 { font-size: 22px; }
+.vf-prose-gl a { color: #A78BFA; }
+.vf-prose-gl a:hover { color: #fff; }
+.vf-prose-gl pre, .vf-prose-gl code {
+  background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.9);
+  border-radius: 8px; font-family: ui-monospace, Menlo, Monaco, monospace;
+}
+.vf-prose-gl pre { padding: 20px; overflow-x: auto; font-size: 14px; margin: 2rem 0; }
+.vf-prose-gl code { padding: 3px 6px; font-size: 0.9em; }
+.vf-prose-gl blockquote {
+  border-left: 3px solid rgba(124,58,237,0.8); padding-left: 1.5rem;
+  color: rgba(255,255,255,0.5); margin: 2rem 0; font-style: italic;
+}
+.vf-prose-gl hr { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 3rem 0; }
+.vf-prose-gl .callout {
+  background: rgba(255,255,255,0.04) !important; border: 1px solid rgba(255,255,255,0.1) !important;
+  border-left: 3px solid rgba(124,58,237,0.8) !important; border-radius: 0 8px 8px 0 !important;
+  padding: 12px 16px !important; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+
+/* ── Gallery overrides ── */
+.vf-gallery img { border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); }
+.vf-image-single { display: flex; justify-content: center; margin: 2rem 0; }
+
+@media (max-width: 768px) {
+  .vf-nav-gl { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .glass-card { backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+  .vf-about-gl { grid-template-columns: 1fr; margin: 0 16px 40px; }
+  .vf-projects-gl { padding: 0 16px 60px; }
+  .vf-hero-gl { padding: 120px 24px 60px; }
+  #projects-container.view-list .glass-card-cover,
+  #projects-container.view-list .glass-card-cover-placeholder { display: none; }
+}
 @media (max-width: 640px) {
   .view-toggle-container { display: none; }
   #projects-container.view-grid { grid-template-columns: 1fr; }
-  #projects-container.view-list .vf-card-ap { flex-direction: column; }
-  #projects-container.view-list .vf-card-ap-cover, #projects-container.view-list .vf-card-ap-cover-placeholder { width: 100%; height: 180px; }
-  #projects-container.view-list .vf-card-ap-body { padding: 12px 0 0; }
 }
 .callout { border-radius: 6px; padding: 12px 16px; margin: 16px 0; border-left: 4px solid; }
 .callout-title { display: flex; align-items: center; gap: 8px; font-weight: 600; margin-bottom: 8px; font-size: 14px; }
@@ -192,106 +287,128 @@ body.vf-apple {
 .callout-quote    { background: #f8fafc; border-color: #64748b; color: #1e293b; }
 .callout-abstract { background: #f0f9ff; border-color: #0ea5e9; color: #0c4a6e; }
 
-/* ── Public Properties (Apple) ── */
+/* ── Public Properties (Glass) ── */
 .vf-properties {
   display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 16px; padding: 24px 0;
-  border-top: 0.5px solid #D2D2D7; border-bottom: 0.5px solid #D2D2D7;
-  margin: 20px auto 32px; max-width: 680px;
+  gap: 16px; padding: 24px;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px; margin: 20px 0 32px;
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
 }
 .vf-property-label {
-  font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em;
-  color: #6E6E73; display: block; margin-bottom: 4px;
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.35); display: block; margin-bottom: 4px;
 }
-.vf-property-value { font-size: 15px; color: #1D1D1F; display: block; }
-.vf-property-link { font-size: 15px; color: #7C3AED; text-decoration: none; }
-.vf-property-link:hover { text-decoration: underline; }
+.vf-property-value { font-size: 15px; color: rgba(255,255,255,0.85); }
+.vf-property-link { font-size: 15px; color: #A78BFA; text-decoration: none; }
+.vf-property-link:hover { color: #fff; }
+
+/* Quote (Glass) */
+.vf-quote-gl {
+  max-width: 760px; margin: 0 auto 60px; padding: 48px 32px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.08); border-radius: 24px;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+}
+.vf-quote-gl-text {
+  font-size: 20px; font-style: italic; font-weight: 300;
+  color: rgba(255,255,255,0.45); line-height: 1.7;
+}
 </style>
 </head>
-<body class="vf-apple">
+<body class="vf-glass">
 
-<nav class="vf-nav-ap">
-  <div class="vf-nav-ap-logo">DOZ.</div>
-  <div style="display:flex;gap:24px;align-items:center;">
-    <a href="https://www.thedozcompany.com" style="color:#7C3AED; font-size:14px; font-weight:400;" target="_blank" rel="noopener noreferrer">Work</a>
+<nav class="vf-nav-gl">
+  <div class="vf-nav-gl-logo">DOZ.</div>
+  <div class="vf-nav-gl-links">
+    <a href="https://www.thedozcompany.com" class="vf-nav-gl-link" target="_blank" rel="noopener noreferrer">Work</a>
   </div>
 </nav>
 
-<header class="vf-hero-ap">
-  <h1 class="vf-hero-ap-title">we design. Then we build.</h1>
-  <p class="vf-hero-ap-subtitle">A web innovation studio delivering UI/UX design at zero cost — then building it with precision.</p>
+<header class="vf-hero-gl">
+  <div class="vf-hero-gl-badge">
+    <span class="vf-hero-gl-badge-dot"></span>
+    Portfolio — 2026
+  </div>
+  <h1 class="vf-hero-gl-title">we design. Then we build.</h1>
+  <p class="vf-hero-gl-subtitle">A web innovation studio delivering UI/UX design at zero cost — then building it with precision.</p>
+  <div class="vf-hero-gl-cta-row">
+    <button class="vf-hero-gl-btn-primary" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})">View Work</button>
+    
+  </div>
 </header>
 
-<section id="work" class="vf-projects-ap">
-  <div class="vf-section-header-ap">
+<section id="work" class="vf-projects-gl">
+  <div class="vf-section-header-gl">
+    <span class="vf-section-label-gl">Selected Work</span>
     <div class="view-toggle-container">
   <button id="btn-grid" class="view-toggle-btn active" data-view="grid" title="Grid view" aria-label="Grid view"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="8" height="8" rx="1"/><rect x="10" y="0" width="8" height="8" rx="1"/><rect x="0" y="10" width="8" height="8" rx="1"/><rect x="10" y="10" width="8" height="8" rx="1"/></svg></button>
   <button id="btn-list" class="view-toggle-btn" data-view="list" title="List view" aria-label="List view"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="18" height="3" rx="1"/><rect x="0" y="7" width="18" height="3" rx="1"/><rect x="0" y="14" width="18" height="3" rx="1"/></svg></button>
 </div>
   </div>
   
-    <div class="vf-filter-bar">
-      <button class="vf-filter-btn active" data-filter="all">All</button>
-      <button class="vf-filter-btn" data-filter="mobile_app">mobile_app</button><button class="vf-filter-btn" data-filter="portfolio">portfolio</button><button class="vf-filter-btn" data-filter="ui">ui</button><button class="vf-filter-btn" data-filter="ui/ux">ui/ux</button><button class="vf-filter-btn" data-filter="ux">ux</button><button class="vf-filter-btn" data-filter="web_design">web_design</button><button class="vf-filter-btn" data-filter="wedding">wedding</button>
-    </div>
-  
-  <div id="projects-container" class="projects-grid view-grid">
+<div class="vf-filter-bar-gl">
+  <button class="vf-filter-btn-gl active" data-filter="all">All</button>
+  <button class="vf-filter-btn-gl" data-filter="mobile_app">mobile_app</button><button class="vf-filter-btn-gl" data-filter="portfolio">portfolio</button><button class="vf-filter-btn-gl" data-filter="ui">ui</button><button class="vf-filter-btn-gl" data-filter="ui/ux">ui/ux</button><button class="vf-filter-btn-gl" data-filter="ux">ux</button><button class="vf-filter-btn-gl" data-filter="web_design">web_design</button><button class="vf-filter-btn-gl" data-filter="wedding">wedding</button>
+</div>
+  <div id="projects-container" class="view-grid">
     
-<a href="pages/pennywise.html" class="vf-card-ap vf-filter-card" data-tags="ui ux mobile_app">
-  <div class="vf-card-ap-cover-placeholder" style="background:linear-gradient(310deg,hsl(160,65%,77%),hsl(218,61%,69%));display:flex;align-items:center;justify-content:center;overflow:hidden"><span style="font-size:64px;font-weight:800;color:rgba(255,255,255,0.25);user-select:none;line-height:1;font-family:-apple-system,sans-serif">P</span></div>
-  <div class="vf-card-ap-body">
-    <div class="vf-card-ap-title">Pennywise</div>
-    <div class="vf-card-ap-desc">A fintech mobile app with clean UI/UX design.</div>
-    <div class="vf-card-ap-tags"><span class="vf-tag-ap">ui</span><span class="vf-tag-ap">ux</span><span class="vf-tag-ap">mobile_app</span></div>
-    <div class="vf-card-ap-link">Learn more &gt;</div>
+<a href="pages/pennywise.html" class="glass-card vf-filter-card" data-tags="ui ux mobile_app">
+  <div class="glass-card-cover"><img src="images/images%202.png" alt="Pennywise" /></div>
+  <div class="glass-card-body">
+    <div class="glass-card-title">Pennywise</div>
+    <div class="glass-card-desc">A fintech mobile app with clean UI/UX design.</div>
+    <div class="glass-card-tags"><span class="glass-tag">ui</span><span class="glass-tag">ux</span><span class="glass-tag">mobile_app</span></div>
+    <span class="glass-card-link">Learn more →</span>
   </div>
 </a>
 
-<a href="pages/pennywise.html" class="vf-card-ap vf-filter-card" data-tags="ui ux mobile_app">
-  <img class="vf-card-ap-cover" src="images/images%202.png" alt="Pennywise" />
-  <div class="vf-card-ap-body">
-    <div class="vf-card-ap-title">Pennywise</div>
-    <div class="vf-card-ap-desc">A fintech mobile app with clean UI/UX design.</div>
-    <div class="vf-card-ap-tags"><span class="vf-tag-ap">ui</span><span class="vf-tag-ap">ux</span><span class="vf-tag-ap">mobile_app</span></div>
-    <div class="vf-card-ap-link">Learn more &gt;</div>
+<a href="pages/pennywise2.html" class="glass-card vf-filter-card" data-tags="ui ux mobile_app">
+  <div class="glass-card-cover-placeholder" style="background:linear-gradient(146deg,hsl(226,66%,41%),hsl(302,71%,46%));overflow:hidden"><span style="font-size:64px;font-weight:800;color:rgba(255,255,255,0.25);user-select:none;line-height:1;font-family:-apple-system,sans-serif">P</span></div>
+  <div class="glass-card-body">
+    <div class="glass-card-title">Pennywise2</div>
+    <div class="glass-card-desc">A fintech mobile app with clean UI/UX design.</div>
+    <div class="glass-card-tags"><span class="glass-tag">ui</span><span class="glass-tag">ux</span><span class="glass-tag">mobile_app</span></div>
+    <span class="glass-card-link">Learn more →</span>
   </div>
 </a>
 
-<a href="pages/pennywise.html" class="vf-card-ap vf-filter-card" data-tags="ui ux">
-  <img class="vf-card-ap-cover" src="images/images%202.png" alt="Pennywise" />
-  <div class="vf-card-ap-body">
-    <div class="vf-card-ap-title">Pennywise</div>
-    <div class="vf-card-ap-desc">A fintech mobile app with clean UI/UX design.</div>
-    <div class="vf-card-ap-tags"><span class="vf-tag-ap">ui</span><span class="vf-tag-ap">ux</span></div>
-    <div class="vf-card-ap-link">Learn more &gt;</div>
+<a href="pages/pennywise.html" class="glass-card vf-filter-card" data-tags="ui ux">
+  <div class="glass-card-cover"><img src="images/images%202.png" alt="Pennywise" /></div>
+  <div class="glass-card-body">
+    <div class="glass-card-title">Pennywise</div>
+    <div class="glass-card-desc">A fintech mobile app with clean UI/UX design.</div>
+    <div class="glass-card-tags"><span class="glass-tag">ui</span><span class="glass-tag">ux</span></div>
+    <span class="glass-card-link">Learn more →</span>
   </div>
 </a>
 
-<a href="pages/aurevia.html" class="vf-card-ap vf-filter-card" data-tags="web_design ui/ux wedding portfolio">
-  <img class="vf-card-ap-cover" src="images/Pasted%20image%2020260425222709.png" alt="Aurevia" />
-  <div class="vf-card-ap-body">
-    <div class="vf-card-ap-title">Aurevia</div>
-    
-    <div class="vf-card-ap-tags"><span class="vf-tag-ap">web_design</span><span class="vf-tag-ap">ui/ux</span><span class="vf-tag-ap">wedding</span></div>
-    <div class="vf-card-ap-link">Learn more &gt;</div>
+<a href="pages/aurevia.html" class="glass-card vf-filter-card" data-tags="web_design ui/ux wedding portfolio">
+  <div class="glass-card-cover"><img src="images/Pasted%20image%2020260425222709.png" alt="Aurevia" /></div>
+  <div class="glass-card-body">
+    <div class="glass-card-title">Aurevia</div>
+    <div class="glass-card-desc">Its an landing page design for an event decor agency</div>
+    <div class="glass-card-tags"><span class="glass-tag">web_design</span><span class="glass-tag">ui/ux</span><span class="glass-tag">wedding</span><span class="glass-tag">portfolio</span></div>
+    <span class="glass-card-link">Learn more →</span>
   </div>
 </a>
   </div>
 </section>
 
-<section class="vf-quote-ap">
-  <p>&quot;A studio that 
-gives before it takes.&quot;</p>
-</section>
 
-<footer class="vf-footer-ap">
-  Copyright &copy; 2026 DOZ.. All rights reserved. <br/>
-  Published with VaultFolio.
+
+
+
+<footer class="vf-footer-gl">
+  <span>© 2026 DOZ.</span>
+  <span>Built with Vault<span class="vf-footer-gl-accent">Folio</span></span>
+  <span>DOZ.</span>
 </footer>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const filters = document.querySelectorAll(".vf-filter-btn");
+  const filters = document.querySelectorAll(".vf-filter-btn-gl");
   const cards = document.querySelectorAll(".vf-filter-card");
   
   filters.forEach(btn => {

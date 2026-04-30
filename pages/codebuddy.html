@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DOZ.</title>
+  <title>CodeBuddy — DOZ.</title>
   <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body.vf-glass {
@@ -315,170 +315,120 @@ body.vf-glass {
   font-size: 20px; font-style: italic; font-weight: 300;
   color: rgba(255,255,255,0.45); line-height: 1.7;
 }
-</style>
+
+/* ── Project Gallery ── */
+.vf-gallery-section{margin:2.5rem 0;}
+.vf-gallery-header{display:flex;justify-content:flex-end;align-items:center;margin-bottom:16px;}
+.vf-gallery-label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);}
+.vf-gallery-toggle{display:flex;gap:6px;align-items:center;}
+.vf-view-btn{width:34px;height:34px;display:flex;align-items:center;justify-content:center;border-radius:6px;cursor:pointer;background:transparent;border:1px solid rgba(255,255,255,0.1);transition:all 0.15s ease;}
+.vf-view-btn svg{fill:rgba(255,255,255,0.5);display:block;}
+.vf-view-btn.active{background:rgba(124,58,237,0.6);border-color:rgba(124,58,237,0.6);}
+.vf-view-btn.active svg{fill:#fff;}
+.vf-gallery-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;}
+.vf-gallery-grid .vf-gallery-item{border-radius:8px;overflow:hidden;aspect-ratio:4/3;background:#0D0D1A;}
+.vf-gallery-grid .vf-gallery-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.3s ease;}
+.vf-gallery-grid .vf-gallery-item:hover img{transform:scale(1.03);}
+.vf-gallery-grid .vf-img-caption{display:none;}
+.vf-gallery-list{display:flex;flex-direction:column;gap:12px;}
+.vf-gallery-list .vf-gallery-item{aspect-ratio:unset;border-radius:0;overflow:visible;}
+.vf-gallery-list .vf-gallery-item img{width:100%;max-height:500px;object-fit:contain;border-radius:8px;background:#0D0D1A;display:block;}
+.vf-lightbox{position:fixed;inset:0;background:rgba(0,0,0,0.92);display:flex;align-items:center;justify-content:center;z-index:9999;cursor:zoom-out;}
+.vf-lightbox.hidden{display:none;}
+#vf-lb-img{max-width:90vw;max-height:90vh;object-fit:contain;border-radius:4px;cursor:default;}
+.vf-lb-close{position:absolute;top:20px;right:24px;background:transparent;border:none;color:white;font-size:28px;cursor:pointer;opacity:0.7;transition:opacity 0.15s;}
+.vf-lb-close:hover{opacity:1;}
+.vf-lb-prev,.vf-lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:white;font-size:32px;width:48px;height:48px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.15s;}
+.vf-lb-prev:hover,.vf-lb-next:hover{background:rgba(255,255,255,0.2);}
+.vf-lb-prev{left:20px;}
+.vf-lb-next{right:20px;}
+.vf-lb-counter{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.6);font-size:13px;pointer-events:none;}
+@media(max-width:640px){
+  .vf-gallery-toggle{display:none;}
+  .vf-gallery-grid{grid-template-columns:1fr;}
+  .vf-gallery-list .vf-gallery-item img{max-height:300px;}
+  .vf-lb-prev{width:36px;height:36px;font-size:24px;left:10px;}
+  .vf-lb-next{width:36px;height:36px;font-size:24px;right:10px;}
+}</style>
 </head>
 <body class="vf-glass">
 
-<nav class="vf-nav-gl">
-  <div class="vf-nav-gl-logo">DOZ.</div>
-  <div class="vf-nav-gl-links">
-    <a href="https://www.thedozcompany.com" class="vf-nav-gl-link" target="_blank" rel="noopener noreferrer">Work</a>
-  </div>
-</nav>
+<div class="vf-page-gl">
+  <a href="../index.html" class="vf-back-gl">← Back</a>
 
-<header class="vf-hero-gl">
-  <div class="vf-hero-gl-badge">
-    <span class="vf-hero-gl-badge-dot"></span>
-    Portfolio — 2026
+  <h1 class="vf-page-gl-title">CodeBuddy</h1>
+  <div class="vf-page-gl-meta">2023-09-10</div>
+  <div class="vf-page-gl-tags"><span class="glass-tag">developer-tools</span><span class="glass-tag">vscode</span><span class="glass-tag">ai</span></div>
+  <p class="vf-project-description">A VS Code extension that adds AI-powered inline code review suggestions. 8,000+ installs.</p>
+  <div class="vf-properties">
+  <div class="vf-property">
+    <span class="vf-property-label">Tech Stack</span>
+    <span class="vf-property-value">TypeScript, VS Code API, OpenAI API</span>
   </div>
-  <h1 class="vf-hero-gl-title">we design. Then we build.</h1>
-  <p class="vf-hero-gl-subtitle">A web innovation studio delivering UI/UX design at zero cost — then building it with precision.</p>
-  <div class="vf-hero-gl-cta-row">
-    <button class="vf-hero-gl-btn-primary" onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})">View Work</button>
-    
+  <div class="vf-property">
+    <span class="vf-property-label">Role</span>
+    <span class="vf-property-value">Solo developer</span>
   </div>
-</header>
-
-<section id="work" class="vf-projects-gl">
-  <div class="vf-section-header-gl">
-    <span class="vf-section-label-gl">Selected Work</span>
-    <div class="view-toggle-container">
-  <button id="btn-grid" class="view-toggle-btn active" data-view="grid" title="Grid view" aria-label="Grid view"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="8" height="8" rx="1"/><rect x="10" y="0" width="8" height="8" rx="1"/><rect x="0" y="10" width="8" height="8" rx="1"/><rect x="10" y="10" width="8" height="8" rx="1"/></svg></button>
-  <button id="btn-list" class="view-toggle-btn" data-view="list" title="List view" aria-label="List view"><svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="0" y="0" width="18" height="3" rx="1"/><rect x="0" y="7" width="18" height="3" rx="1"/><rect x="0" y="14" width="18" height="3" rx="1"/></svg></button>
+  <div class="vf-property">
+    <span class="vf-property-label">Installs</span>
+    <span class="vf-property-value">8,000+</span>
+  </div>
+  <div class="vf-property">
+    <span class="vf-property-label">Marketplace</span>
+    <a href="https://marketplace.visualstudio.com" class="vf-property-link" target="_blank" rel="noopener">View Project</a>
+  </div>
 </div>
+
+  <div class="vf-page-gl-content">
+    <div class="vf-prose-gl"><h2>Overview</h2></p><p>CodeBuddy sits quietly in VS Code and surfaces code review suggestions as you write — without interrupting your flow.</p><p><h2>How It Works</h2></p><p>- Highlights potential issues inline as you type
+<p>- Suggests refactors on save</p>
+<p>- Explains why something might be a problem in plain English</p>
+<p>- Works with any language VS Code supports</p><p><h2>Results</h2></p><p>- 8,000+ installs on VS Code Marketplace</p>
+<p>- 4.5 star rating (210 reviews)</p>
+<p>- Top 3 in "AI Tools" category on launch week</p></div>
   </div>
-  
-<div class="vf-filter-bar-gl">
-  <button class="vf-filter-btn-gl active" data-filter="all">All</button>
-  <button class="vf-filter-btn-gl" data-filter="ai">ai</button><button class="vf-filter-btn-gl" data-filter="android">android</button><button class="vf-filter-btn-gl" data-filter="design">design</button><button class="vf-filter-btn-gl" data-filter="design-system">design-system</button><button class="vf-filter-btn-gl" data-filter="developer-tools">developer-tools</button><button class="vf-filter-btn-gl" data-filter="figma">figma</button><button class="vf-filter-btn-gl" data-filter="fintech">fintech</button><button class="vf-filter-btn-gl" data-filter="freelance">freelance</button><button class="vf-filter-btn-gl" data-filter="ios">ios</button><button class="vf-filter-btn-gl" data-filter="mobile">mobile</button><button class="vf-filter-btn-gl" data-filter="open-source">open-source</button><button class="vf-filter-btn-gl" data-filter="react">react</button><button class="vf-filter-btn-gl" data-filter="react-native">react-native</button><button class="vf-filter-btn-gl" data-filter="saas">saas</button><button class="vf-filter-btn-gl" data-filter="tailwind">tailwind</button><button class="vf-filter-btn-gl" data-filter="travel">travel</button><button class="vf-filter-btn-gl" data-filter="ui">ui</button><button class="vf-filter-btn-gl" data-filter="ux">ux</button><button class="vf-filter-btn-gl" data-filter="vscode">vscode</button><button class="vf-filter-btn-gl" data-filter="web">web</button>
 </div>
-  <div id="projects-container" class="view-grid">
-    
-<a href="pages/moonpay-checkout-redesign.html" class="glass-card vf-filter-card" data-tags="ux design freelance fintech">
-  <div class="glass-card-cover"><img src="images/Pasted%20image%2020260430152007.png" alt="MoonPay Checkout Redesign" /></div>
-  <div class="glass-card-body">
-    <div class="glass-card-title">MoonPay Checkout Redesign</div>
-    <div class="glass-card-desc">A freelance UX redesign of a crypto checkout flow that reduced drop-off rate by 34%.</div>
-    <div class="glass-card-tags"><span class="glass-tag">ux</span><span class="glass-tag">design</span><span class="glass-tag">freelance</span><span class="glass-tag">fintech</span></div>
-    <span class="glass-card-link">Learn more →</span>
-  </div>
-</a>
 
-<a href="pages/codebuddy.html" class="glass-card vf-filter-card" data-tags="developer-tools vscode ai">
-  <div class="glass-card-cover"><img src="images/Pasted%20image%2020260430151832.png" alt="CodeBuddy" /></div>
-  <div class="glass-card-body">
-    <div class="glass-card-title">CodeBuddy</div>
-    <div class="glass-card-desc">A VS Code extension that adds AI-powered inline code review suggestions. 8,000+ installs.</div>
-    <div class="glass-card-tags"><span class="glass-tag">developer-tools</span><span class="glass-tag">vscode</span><span class="glass-tag">ai</span></div>
-    <span class="glass-card-link">Learn more →</span>
-  </div>
-</a>
-
-<a href="pages/wandr.html" class="glass-card vf-filter-card" data-tags="web saas travel">
-  <div class="glass-card-cover"><img src="images/Pasted%20image%2020260430151621.png" alt="Wandr" /></div>
-  <div class="glass-card-body">
-    <div class="glass-card-title">Wandr</div>
-    <div class="glass-card-desc">A travel planning web app that turns rough itineraries into shareable visual trip guides.</div>
-    <div class="glass-card-tags"><span class="glass-tag">web</span><span class="glass-tag">saas</span><span class="glass-tag">travel</span></div>
-    <span class="glass-card-link">Learn more →</span>
-  </div>
-</a>
-
-<a href="pages/pixelkit-ui.html" class="glass-card vf-filter-card" data-tags="open-source tailwind design-system">
-  <div class="glass-card-cover"><img src="images/Pasted%20image%2020260430151419.png" alt="PixelKit UI" /></div>
-  <div class="glass-card-body">
-    <div class="glass-card-title">PixelKit UI</div>
-    <div class="glass-card-desc">Open source Tailwind CSS component library with 120+ free components. 2.3k GitHub stars.</div>
-    <div class="glass-card-tags"><span class="glass-tag">open-source</span><span class="glass-tag">tailwind</span><span class="glass-tag">design-system</span></div>
-    <span class="glass-card-link">Learn more →</span>
-  </div>
-</a>
-
-<a href="pages/trackr.html" class="glass-card vf-filter-card" data-tags="mobile react-native ios android">
-  <div class="glass-card-cover"><img src="images/Pasted%20image%2020260430151104.png" alt="Trackr" /></div>
-  <div class="glass-card-body">
-    <div class="glass-card-title">Trackr</div>
-    <div class="glass-card-desc">A habit and goal tracking mobile app for iOS and Android. Built with React Native. 12,000+ downloads.</div>
-    <div class="glass-card-tags"><span class="glass-tag">mobile</span><span class="glass-tag">react-native</span><span class="glass-tag">ios</span><span class="glass-tag">android</span></div>
-    <span class="glass-card-link">Learn more →</span>
-  </div>
-</a>
-
-<a href="pages/novu-design-system.html" class="glass-card vf-filter-card" data-tags="design-system ui figma">
-  <div class="glass-card-cover"><img src="images/Pasted%20image%2020260430150943.png" alt="Novu Design System" /></div>
-  <div class="glass-card-body">
-    <div class="glass-card-title">Novu Design System</div>
-    <div class="glass-card-desc">A component library and design system built for a Series A startup. 60+ components, fully documented.</div>
-    <div class="glass-card-tags"><span class="glass-tag">design-system</span><span class="glass-tag">ui</span><span class="glass-tag">figma</span></div>
-    <span class="glass-card-link">Learn more →</span>
-  </div>
-</a>
-
-<a href="pages/flowdesk.html" class="glass-card vf-filter-card" data-tags="saas web react">
-  <div class="glass-card-cover"><img src="images/Pasted%20image%2020260430150805.png" alt="FlowDesk" /></div>
-  <div class="glass-card-body">
-    <div class="glass-card-title">FlowDesk</div>
-    <div class="glass-card-desc">A Notion-inspired project management SaaS built for async remote teams. 4,000+ active users.</div>
-    <div class="glass-card-tags"><span class="glass-tag">saas</span><span class="glass-tag">web</span><span class="glass-tag">react</span></div>
-    <span class="glass-card-link">Learn more →</span>
-  </div>
-</a>
-  </div>
-</section>
-
-
-
-
-
-<footer class="vf-footer-gl">
-  <span>© 2026 DOZ.</span>
-  <span>Built with Vault<span class="vf-footer-gl-accent">Folio</span></span>
-  <span>DOZ.</span>
-</footer>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const filters = document.querySelectorAll(".vf-filter-btn-gl");
-  const cards = document.querySelectorAll(".vf-filter-card");
-  
-  filters.forEach(btn => {
-    btn.addEventListener("click", () => {
-      filters.forEach(f => f.classList.remove("active"));
-      btn.classList.add("active");
-      
-      const tag = btn.getAttribute("data-filter");
-      
-      cards.forEach(card => {
-        if (tag === "all") {
-          card.style.display = "";
-        } else {
-          const cardTags = card.getAttribute("data-tags") || "";
-          const tList = cardTags.split(" ");
-          if (tList.includes(tag)) {
-            card.style.display = "";
-          } else {
-            card.style.display = "none";
-          }
-        }
-      });
-    });
-  });
-});
-</script>
+<div id="vf-lightbox" class="vf-lightbox hidden">
+  <button class="vf-lb-close" aria-label="Close">&#x2715;</button>
+  <button class="vf-lb-prev" aria-label="Previous">&#x2039;</button>
+  <button class="vf-lb-next" aria-label="Next">&#x203A;</button>
+  <div class="vf-lb-counter"></div>
+  <img id="vf-lb-img" src="" alt=""/>
+</div>
 <script>
 (function(){
-  var KEY='vaultfolio-view-preference';
-  var c=document.getElementById('projects-container');
-  var bg=document.getElementById('btn-grid');
-  var bl=document.getElementById('btn-list');
-  if(!c||!bg||!bl)return;
-  function apply(v){
-    if(v==='list'){c.classList.remove('view-grid');c.classList.add('view-list');bg.classList.remove('active');bl.classList.add('active');}
-    else{c.classList.remove('view-list');c.classList.add('view-grid');bg.classList.add('active');bl.classList.remove('active');}
+  var GKEY='vaultfolio-gallery-view';
+  var gc=document.getElementById('vf-gallery-container');
+  var gbtn=document.getElementById('vf-btn-grid');
+  var lbtn=document.getElementById('vf-btn-list');
+  if(!gc)return;
+  function setView(v){
+    if(v==='list'){gc.className='vf-gallery-list';if(gbtn)gbtn.classList.remove('active');if(lbtn)lbtn.classList.add('active');}
+    else{gc.className='vf-gallery-grid';if(gbtn)gbtn.classList.add('active');if(lbtn)lbtn.classList.remove('active');}
+    localStorage.setItem(GKEY,v);
   }
-  apply(localStorage.getItem(KEY)==='list'?'list':'grid');
-  bg.addEventListener('click',function(){apply('grid');localStorage.setItem(KEY,'grid');});
-  bl.addEventListener('click',function(){apply('list');localStorage.setItem(KEY,'list');});
+  setView(localStorage.getItem(GKEY)==='list'?'list':'grid');
+  if(gbtn)gbtn.addEventListener('click',function(){setView('grid');});
+  if(lbtn)lbtn.addEventListener('click',function(){setView('list');});
+  var lb=document.getElementById('vf-lightbox');
+  var lbImg=document.getElementById('vf-lb-img');
+  var lbCtr=document.querySelector('.vf-lb-counter');
+  var imgs=Array.from(document.querySelectorAll('#vf-gallery-container img'));
+  var cur=0;
+  function openLb(i){cur=i;if(lbImg)lbImg.src=imgs[i].src;if(lbCtr)lbCtr.textContent=(i+1)+' / '+imgs.length;if(lb)lb.classList.remove('hidden');document.body.style.overflow='hidden';}
+  function closeLb(){if(lb)lb.classList.add('hidden');document.body.style.overflow='';}
+  function prev(){cur=(cur-1+imgs.length)%imgs.length;if(lbImg)lbImg.src=imgs[cur].src;if(lbCtr)lbCtr.textContent=(cur+1)+' / '+imgs.length;}
+  function next(){cur=(cur+1)%imgs.length;if(lbImg)lbImg.src=imgs[cur].src;if(lbCtr)lbCtr.textContent=(cur+1)+' / '+imgs.length;}
+  imgs.forEach(function(img,i){img.style.cursor='zoom-in';img.addEventListener('click',function(){openLb(i);});});
+  var closeBtn=document.querySelector('.vf-lb-close');
+  var prevBtn=document.querySelector('.vf-lb-prev');
+  var nextBtn=document.querySelector('.vf-lb-next');
+  if(closeBtn)closeBtn.addEventListener('click',closeLb);
+  if(prevBtn)prevBtn.addEventListener('click',prev);
+  if(nextBtn)nextBtn.addEventListener('click',next);
+  if(lb)lb.addEventListener('click',function(e){if(e.target===lb)closeLb();});
+  document.addEventListener('keydown',function(e){if(!lb||lb.classList.contains('hidden'))return;if(e.key==='Escape')closeLb();if(e.key==='ArrowLeft')prev();if(e.key==='ArrowRight')next();});
 })();
 </script>
 </body>
